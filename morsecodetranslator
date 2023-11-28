@@ -29,4 +29,13 @@ def morse_to_text(morse_code, morse_dict):
             print(f"The {code} Morse code does not exist in this dictionary.")
     return text
 
+string = input("Enter English text or Morse code:\n")
+
+if any(char.isalpha() for char in string):
+    morse_code_result = text_to_morse(string, morse_dict)
+    print(f"Morse Code: {morse_code_result}")
+else:
+    text_result = morse_to_text(string, morse_dict)
+    print(f"English Text: {text_result}")
+
 
