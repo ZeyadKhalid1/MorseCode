@@ -4,3 +4,26 @@ morse_dict = {'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '.
               'Y': '-.--', 'Z': '--..', '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
               '6': '-....', '7': '--...', '8': '---..', '9': '----.', '0': '-----', ', ': '--..--', '.': '.-.-.-',
               '?': '..--..', '/': '-..-.', '-': '-....-', '(': '-.--.', ')': '-.--.-', '!': '-.-.--'}
+def text_to_morse(string, morse_dict):
+    string = string.upper()
+    morse_code = ""
+    for character in string:
+        if character in morse_dict.keys():
+            morse_code += morse_dict[character] + " "
+        elif character == " ":
+            morse_code += "  "  
+        else:
+            print(f"The {character} character does not exist in this dictionary.")
+    return morse_code.strip()
+
+def morse_to_text(morse_code, morse_dict):
+    morse_code = morse_code.split(" ")
+    text = ""
+    for code in morse_code:
+        if code in morse_dict.values():
+            text += [k for k, v in morse_dict.items() if v == code][0]
+        elif code == "":
+            text += " "
+        else:
+            print(f"The {code} Morse code does not exist in this dictionary.")
+    return text
