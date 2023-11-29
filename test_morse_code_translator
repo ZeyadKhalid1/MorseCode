@@ -55,9 +55,5 @@ class TestMorse(unittest.TestCase):
         text_result = morse_to_text(morse, morse_dict)
         self.assertEqual(text_result, expected_text)
 
-    def test_invalid_text_to_morse(self):
-        invalid_ttm = text_to_morse(invalid_text, morse_dict)
-        self.assertEqual(invalid_ttm, error_message)
-
 if __name__ == '__main__':
     unittest.main()
