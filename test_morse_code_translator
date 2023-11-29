@@ -8,3 +8,29 @@ morse_dict = {'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '.
               'Y': '-.--', 'Z': '--..', '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
               '6': '-....', '7': '--...', '8': '---..', '9': '----.', '0': '-----', ', ': '--..--', '.': '.-.-.-',
               '?': '..--..', '/': '-..-.', '-': '-....-', '(': '-.--.', ')': '-.--.-', '!': '-.-.--'}
+
+# Defining a function that converts english text into morse code
+def text_to_morse(string, morse_dict):
+    string = string.upper() # Turn the user's input into uppercase so it can be compared to the dictionary
+    morse_code = ""
+    for character in string:
+        if character in morse_dict.keys(): # If the entered character is in the dictionary then find its morse code equivalent and add it to the variable called morse_code
+            morse_code += morse_dict[character] + " "
+        elif character == " ": # If there is a space then add a medium gap 
+            morse_code += "  "  
+        else: # If the user's input is invalid
+            print(f"The {character} character does not exist in this dictionary.")
+    return morse_code.strip() # Return the morse code translation of the english text
+
+# Defining a function that converts morse code into english text
+def morse_to_text(morse_code, morse_dict):
+    morse_code = morse_code.split(" ") # Splitting the different morse code characters
+    text = ""
+    for code in morse_code:
+        if code in morse_dict.values(): # If the morse code character exists in the dictionary
+            text += [k for k, v in morse_dict.items() if v == code][0]
+        elif code == "":
+            text += " "
+        else: # If the user's input is invalid
+            print(f"The {code} Morse code does not exist in this dictionary.")
+    return text
