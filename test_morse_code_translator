@@ -34,3 +34,13 @@ def morse_to_text(morse_code, morse_dict):
         else: # If the user's input is invalid
             print(f"The {code} Morse code does not exist in this dictionary.")
     return text
+
+# The function's inputs and their expected result for comparison
+string = "Hello World!"
+expected_morse_result = ".... . .-.. .-.. ---   .-- --- .-. .-.. -.. -.-.--"
+
+morse = ".... . .-.. .-.. ---   .-- --- .-. .-.. -.. -.-.--"
+expected_text = "HELLO  WORLD!"
+
+invalid_text = "%"
+error_message = f"The {invalid_text} character does not exist in this dictionary."
