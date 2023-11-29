@@ -44,3 +44,20 @@ expected_text = "HELLO  WORLD!"
 
 invalid_text = "%"
 error_message = f"The {invalid_text} character does not exist in this dictionary."
+
+class TestMorse(unittest.TestCase):
+
+    def test_text_to_morse(self):
+        morse_result = text_to_morse(string, morse_dict)
+        self.assertEqual(morse_result, expected_morse_result)
+
+    def test_morse_to_text(self):
+        text_result = morse_to_text(morse, morse_dict)
+        self.assertEqual(text_result, expected_text)
+
+    def test_invalid_text_to_morse(self):
+        invalid_ttm = text_to_morse(invalid_text, morse_dict)
+        self.assertEqual(invalid_ttm, error_message)
+
+if __name__ == '__main__':
+    unittest.main()
