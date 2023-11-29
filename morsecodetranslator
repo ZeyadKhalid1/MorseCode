@@ -18,3 +18,16 @@ def text_to_morse(string, morse_dict):
         else: # If the user's input is invalid
             print(f"The {character} character does not exist in this dictionary.")
     return morse_code.strip() # Return the morse code translation of the english text
+
+# Defining a function that converts morse code into english text
+def morse_to_text(morse_code, morse_dict):
+    morse_code = morse_code.split(" ") # Splitting the different morse code characters
+    text = ""
+    for code in morse_code:
+        if code in morse_dict.values(): # If the morse code character exists in the dictionary
+            text += [k for k, v in morse_dict.items() if v == code][0]
+        elif code == "":
+            text += " "
+        else: # If the user's input is invalid
+            print(f"The {code} Morse code does not exist in this dictionary.")
+    return text
